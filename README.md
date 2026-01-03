@@ -1,16 +1,44 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+```md
+3个子包不该耦合在一起，如果适合工具包的话，再提取公共的，如isObject
+shared 融合其他子包。
+子包目录
+type
+utils
 
-Currently, two official plugins are available:
+dndManager => dragdropMange
+html5-dnd => react-dnd
+drag-html5  => backend-html5
+drag-core  => dnd-core
+drag-hooks => react-dnd
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+DragDrop => dnd
+Monitor => Watcher
+manager => Hub // 枢纽
+actions的Registry => Directory // 目录（与 Hub 配套） register， componentManagement
+backend => Driver
+isSetup,setup => isInit, init
+xyCoord => position
+spec => norm
+connector => adapter
+beginDrag => startDrag
+endDrag => overDrag
+source => origin
+target =>  dest / destination
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+文件名修改，
+返回数组，变返回对象。建议还是数组，在观望
+switch case 变为 if else
+导入不用as
+redux5.0.1接收几个参数
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+// 如果这样使用 useDrag，有预览：
+const [, drag, preview] = useDrag(...);
+// preview(ref) 用于指定预览元素：
+MonotonicInterpolant
+OffsetUtils
+DragPreviewImage
+SourceConnector的一些
+```
